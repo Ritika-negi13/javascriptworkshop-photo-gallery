@@ -1,29 +1,22 @@
-$('img').on('click', function() {
-    var popupImage = $('img', {
-      src: $(this).attr('src'), 
-      css: {
-        width: '100%',
-        height: 'auto',
-        position: 'fixed',
-        top: '10px',
-        left: '10px',
-        zIndex: 1000
-      }
+$(document).ready(function(){
+    var Image=$('img').on('click', function() {
+        var src=$(this).attr('src')
+        $('img').attr('src',src).css({
+            'width': 'auto',
+            'height': '400px',
+            'display': 'block',
+            'position': 'fixed',
+            'top': '50%',
+            'left': '50%',
+            'transform': 'translate(-50%, -50%)',
+            'z-index': '1',
+            'background-color':'rgb(155, 153, 153)',
+            'padding':'100px 362px 70px 362px'  
+        }).on('click', function() {
+            Image.css("display","none")
+            $('gallery').css("display","")
+            window.location.reload();
+        });
     });
-    console.log($(this).attr('src'));
-    var backdrop = $('<div>', {
-      css: {
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
-        zIndex: 999
-      }
-    }).on('click', function() {
-      $(this).remove();
-      popupImage.remove();
-    });
-    $('body').append(backdrop, popupImage);
-});
+})
+
