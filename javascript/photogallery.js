@@ -16,6 +16,7 @@ $(document).ready(function(){
             Image.css("display","none")
             $('gallery').css("display","")
             window.location.reload();
+            //not working without reload
         });
     });
 })
